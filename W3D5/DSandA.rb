@@ -1,1 +1,3 @@
-z 
+def class 
+    
+end
