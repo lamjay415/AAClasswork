@@ -47,5 +47,5 @@ shawna = Employee.new("Shawna", "TA", 12000, darren)
 david = Employee.new("David","TA",10000, darren)
 
 p ned.bonus(5)
-#p ned.employees
+
 
