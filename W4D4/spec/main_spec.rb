@@ -32,3 +32,31 @@ describe "#stock_picker" do
         expect(stock_picker(stocks)).to eq([0,3])
     end
 end
+
+describe "#move" do
+    let(:rod1) {[3,1]}
+    let(:rod2) {[2,4,6]}
+    let(:rod3) {[7]}
+    it "index of second argument can't be smaller than the index of first element" do
+        expect{ move(x,y)}.to raise_error("CantMove")
+    end
+end
+
+describe "#won?" do
+    
+end
+
+1[3,1]
+2[2,4,6]
+3[7]
+
+[3]
+[2,4,6]
+[7,1]
+
+move(1,3)
+
+[1..7].reverse
+[7,6,5,4,3,2,1] 
+[]
+[]
