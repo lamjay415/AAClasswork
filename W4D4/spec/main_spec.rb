@@ -24,3 +24,11 @@ describe "#my_transpose" do
         expect { my_transpose([0,1,2]) }.to raise_error("InvalidArray")
     end
 end
+
+
+describe "#stock_picker" do 
+    let(:stocks) {[1,5,3,7,5,2,0]}
+    it "should have an array with smaller stock price before the larger stock price." do 
+        expect(stock_picker(stocks)).to eq([0,3])
+    end
+end
