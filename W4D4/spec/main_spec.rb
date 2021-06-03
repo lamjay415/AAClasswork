@@ -43,20 +43,23 @@ describe "#move" do
 end
 
 describe "#won?" do
-    
+    #game = double('receiver')
+    it "should return true if one of the rods is sorted and have the 7 disks." do 
+        expect
+    end
 end
 
-1[3,1]
-2[2,4,6]
-3[7]
+# 1[3,1]
+# 2[2,4,6]
+# 3[7]
 
-[3]
-[2,4,6]
-[7,1]
+# [3]
+# [2,4,6]
+# [7,1]
 
-move(1,3)
+# move(1,3)
 
-[1..7].reverse
-[7,6,5,4,3,2,1] 
-[]
-[]
+# [1..7].reverse
+# [7,6,5,4,3,2,1] 
+# []
+# []

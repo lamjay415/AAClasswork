@@ -50,5 +50,53 @@ def stock_picker(stocks)
         end
     end
     [min,max]
-    
+end
+
+
+class Towers_of_Hanoi
+
+    def initialize(rod1, rod2, rod3)
+        @rod1 = []
+        @rod2 = []
+        @rod3 = []
+    end
+
+    def start_game
+        arr = [1,2,3,4,5,6,7]
+        new_arr = [@rod1, @rod2, @rod3]
+
+        
+        arr.shuffle.each do |ele|
+            new_arr.sample.push(arr.pop)
+        end
+
+        while !won?
+
+            get_user_input
+           
+        end
+
+    end
+
+    def get_user_input
+        
+        puts "Please enter a disk number: "
+        disk_num = gets.chomp.to_i
+        puts "Which rod do you want put onto? "
+        rod_num = gets.chomp.to_i
+        move(disk_num,rod_num)
+    end
+
+
+    def won?
+        arr = [1,2,3,4,5,6,7]
+     if (@rod1.sorted.count == 7 || @rod2.count == 7 || @rod3.count == 7) 
+        && (@rod1.reverse == arr || @rod2.reverse == arr  || @rod3.reverse == arr)
+        return true 
+     end
+     false
+    end
+    #randomize
+
+
 end
