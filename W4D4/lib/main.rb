@@ -19,3 +19,10 @@ class Array
         result
     end
 end
+
+def my_transpose(array)
+    if !array.first.is_a?(Array)
+        raise "InvalidArray"
+    end
+    array.transpose
+end
