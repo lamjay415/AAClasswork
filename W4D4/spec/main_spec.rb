@@ -44,9 +44,16 @@ end
 
 describe "#won?" do
     #game = double('receiver')
-    it "should return true if one of the rods is sorted and have the 7 disks." do 
-        expect
+    tower = Towers_of_Hanoi.new([3,1],[2,4,6],[7])
+    it "should return false if one of the rods is not sorted or have less than 7 disks." do 
+        expect(tower.won?).to eq(false) 
     end
+
+    tower = Towers_of_Hanoi.new([],[],[7,6,5,4,3,2,1])
+    it "should return true if one of the rods is sorted and have 7 disks" do
+        expect(tower.won?).to eq(true) 
+    end
+
 end
 
 # 1[3,1]
