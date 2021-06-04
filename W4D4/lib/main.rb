@@ -55,6 +55,8 @@ end
 
 class Towers_of_Hanoi
 
+    attr_reader :rod1, :rod2, :rod3
+
     def initialize(rod1, rod2, rod3)
         @rod1 = rod1
         @rod2 = rod2

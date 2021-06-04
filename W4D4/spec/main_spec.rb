@@ -38,7 +38,7 @@ describe "#move" do
     let(:rod2) {[2,4,6]}
     let(:rod3) {[7]}
     it "index of second argument can't be smaller than the index of first element" do
-        expect{ move(x,y)}.to raise_error("CantMove")
+        expect{ move(2,1)}.to raise_error("CantMove")
     end
 end
 
@@ -48,10 +48,10 @@ describe "#won?" do
     it "should return false if one of the rods is not sorted or have less than 7 disks." do 
         expect(tower.won?).to eq(false) 
     end
-
-    tower = Towers_of_Hanoi.new([],[],[7,6,5,4,3,2,1])
+    
+    tower2 = Towers_of_Hanoi.new([],[],[7,6,5,4,3,2,1])
     it "should return true if one of the rods is sorted and have 7 disks" do
-        expect(tower.won?).to eq(true) 
+        expect(tower2.won?).to eq(true) 
     end
 
 end
