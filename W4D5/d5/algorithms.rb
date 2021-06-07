@@ -43,6 +43,18 @@ def largest_contiguous_subsum_fast(list)
     max_sum
 end
 
+#Contiguous Sum Demo O(n) solution
+def contiguous_sub_sum2(arr)
+    max = arr.first
+    curr_sum = 0
+    arr.each do |num|
+        curr_sum += num
+        max = curr_sum if curr_sum > max
+        curr_sum = 0 if curr_sum < 0
+    end
+    max
+end
+
 p largest_contiguous_subsum_fast([5, 3, -7])
 p largest_contiguous_subsum_fast([2, 3, -6, 7, -6, 7])
 p largest_contiguous_subsum_fast([-5, -1, -3])
