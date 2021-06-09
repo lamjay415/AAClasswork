@@ -79,7 +79,9 @@ VALUES
     ('Why don''t we have a lecture day?','I AM CONFUSED, WHY NO ONE HELP???',
     (SELECT id FROM users WHERE fname = 'Mara')),
     ('What are we doing tomorrow?', 'I am no clue, the schedule doesn''t say anything', 
-    (SELECT id FROM users WHERE fname = 'Jay'));
+    (SELECT id FROM users WHERE fname = 'Jay')),
+    ('When will we stop having questions???','I DONT WANT TO BE CONFUSED ANYMORE!!',
+    (SELECT id FROM users WHERE fname = 'Mara'));
 
 INSERT INTO 
     question_follows(question_id,user_id)
@@ -93,7 +95,8 @@ VALUES
     (1,"TAs didn't have coffee",null , 3),
     (2,"As little as we possibly can",null , 1),
     (1,"why didn't they go starbucks",1,2),
-    (2,"going to taco bell",null ,3);
+    (2,"going to taco bell",null ,3),
+    (1,"it was closed because of covid", 3, 3);
 
 INSERT INTO
     question_likes(user_id,question_id)
