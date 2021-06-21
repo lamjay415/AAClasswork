@@ -1,33 +1,6 @@
 <form action='<%= cats_url %>' method='post'>
-    <label for='cat_name'>Name </label>
-    <input type='text' id='cat_name' name='cat[name]' value= '<%= @cat.name %>' > 
-    <br>
 
-    <label for='cat_birth_date'>Birthdate </label>
-    <input type='date' id='cat_birth_date' name='cat[birth_date]' value= '<%= @cat.birth_date %>' > 
-    <br>
+  <%= render 'form', cat: @cat %>
+  <input type='submit' value='Create Cat'> 
 
-   
-    
-  <select name='cat[color]'>
-    <% Cat::COLORS.each do |color| %>
-    <option value="<%= color %>" ><%= color %> </option>
-    
-  <% end %>
-  </select>
-  <br>
-    <label for='cat_sex'>Sex </label>
-      <label for='Male' >Male</label>
-    <input type='radio' id='cat_sex' name='cat[sex]' value='M' > 
-      <label for='Female' >Female</label>
-    <input type='radio' id='cat_sex' name='cat[sex]' value='F' > 
-    <br>
-
-    <label for='cat_description'>Description </label>
-    <input type='textarea' id='cat_description' name='cat[name]' value= '<%= @cat.name %>' > 
-    <br>
-
-   <input type='submit' value='Create Cat'> 
-
-
- </form>   
+</form>   

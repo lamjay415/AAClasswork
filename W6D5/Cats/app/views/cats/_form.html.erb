@@ -1,0 +1,48 @@
+    <label for='cat_name'>Name: </label>
+    <input type='text' id='cat_name' name='cat[name]' value= '<%= @cat.name %>' > 
+    <br>
+    <br>
+
+    <label for='cat_birth_date'>Birthdate: </label>
+    <input type='date' id='cat_birth_date' name='cat[birth_date]' value= '<%= @cat.birth_date %>' > 
+    <br>
+    <br>
+
+    <label for='cat_color'>Color: </label>
+    <select name='cat[color]'>
+        <option disabled selected><%= @cat.color.nil? ? '--Select a Color--':@cat.color  %></option>
+        <% colors = Cat::COLORS %>
+        <% colors = colors - [@cat.color] %>
+        <% colors.each do |color| %>
+        <option value="<%= color %>" ><%= color %> </option>
+        <% end %>
+    </select>
+    <br>
+    <br>
+    <label for='cat_sex'>Sex: </label>
+
+    <% if @cat.sex == 'M' %>
+        <input type='radio' id='cat_sex' name='cat[sex]' value='M' checked>
+        <label for='Male' >Male</label>
+        <input type='radio' id='cat_sex' name='cat[sex]' value='F'> 
+        <label for='Female' >Female</label>
+    <% elsif @cat.sex == 'F' %>
+        <input type='radio' id='cat_sex' name='cat[sex]' value='M' >
+        <label for='Male' >Male</label>
+        <input type='radio' id='cat_sex' name='cat[sex]' value='F' checked> 
+        <label for='Female' >Female</label>
+    <% else %>
+        <input type='radio' id='cat_sex' name='cat[sex]' value='M' >
+        <label for='Male' >Male</label>
+        <input type='radio' id='cat_sex' name='cat[sex]' value='F' > 
+        <label for='Female' >Female</label>
+    <% end %>
+    
+    <br>
+    <br>
+
+    <label for='cat_description'>Description </label>
+    <input type='textarea' id='cat_description' name='cat[description]' value= '<%= @cat.description %>' > 
+
+    <br>
+    <br>

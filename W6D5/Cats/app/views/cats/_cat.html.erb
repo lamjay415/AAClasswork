@@ -1,7 +1,6 @@
-<h2> CAT </h2>
 <table>
 <thead>
-    <th><%= cat.name %></th>
+    <th><%= cat.name.upcase %></th>
 </thead>
 <tbody>
     <tr>
@@ -17,7 +16,10 @@
 </tbody>
 </table>
 <% if form == :show %>
-    <a href = "<%= cats_url %>"> Back to Cats </a>    
+    <a href = "<%= edit_cat_url %>"> Edit this Cat </a>
+    <br>
+    <a href = "<%= cats_url %>"> Back to Cats </a>
 <% else %>
     <a href = "<%= cat_url(cat) %>"> Look at this cat </a>
 <% end %>
+<br>
