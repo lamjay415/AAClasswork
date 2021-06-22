@@ -13,7 +13,7 @@ class CatsController < ApplicationController
     @cat = Cat.new
     render :new
   end
-
+  
   def create
     @cat = Cat.new(cat_params)
     if @cat.save

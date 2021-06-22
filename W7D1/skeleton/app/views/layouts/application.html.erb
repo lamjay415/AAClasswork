@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <% if current_user.nil? %>
+      <h1>Hello you should log in </h1>
+      <a href ="<%= new_user_url  %>"> Sign Up </a>
+      <a href ="<%= new_session_url %>">Log In </a>
+    <% else  %>
+      <h1>Welcome <%= current_user.username %> </h1>
+      <form method="POST" action="<%= session_url(:id) %>">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Log Out">
+      </form>
+    <% end %>
+    
+
+
     <title>NinetyNineCats</title>
     <%= csrf_meta_tags %>
 
