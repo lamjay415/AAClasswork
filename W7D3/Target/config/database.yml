@@ -59,6 +59,13 @@ test:
   <<: *default
   database: Target_test
 
+
+# test:
+#     adapter: postgresql
+#     database: Target_test
+#     pool: 5
+#     timeout: 5000
+
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -83,3 +90,4 @@ production:
   database: Target_production
   username: Target
   password: <%= ENV['TARGET_DATABASE_PASSWORD'] %>
+
