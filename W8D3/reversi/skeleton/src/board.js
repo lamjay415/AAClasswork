@@ -181,12 +181,27 @@ Board.prototype.placePiece = function (pos, color) {
  * the Board for a given color.
  */
 Board.prototype.validMoves = function (color) {
+  let arr = [];
+  for(let i = 0; i < 8; i++){
+    for(let j = 0; j < 8; j++){
+      let pos = [i,j]
+      if(this.validMove(pos,color)){
+        arr.push(pos);
+      }
+    }
+  }
+  return arr;
 };
 
 /**
  * Checks if there are any valid moves for the given color.
  */
 Board.prototype.hasMove = function (color) {
+  if(this.validMoves(color).length == 0){
+    return false;
+  }else{
+    return true;
+  }
 };
 
 
@@ -196,6 +211,11 @@ Board.prototype.hasMove = function (color) {
  * the black player are out of moves.
  */
 Board.prototype.isOver = function () {
+  if(!this.hasMove('black') && !this.hasMove('white')){
+    return true;
+  }else{
+    return false;
+  }
 };
 
 
@@ -205,6 +225,23 @@ Board.prototype.isOver = function () {
  * Prints a string representation of the Board to the console.
  */
 Board.prototype.print = function () {
+  console.log(" 0 1 2 3 4 5 6 7");
+  for(let i = 0; i < 8; i++){
+    let str = ""
+    for(let j = 0; j < 8; j++){
+      if(!this.isOccupied([i,j])){
+        str += "_ ";
+      }else{
+        let piece = this.grid[i][j];
+        if(piece.color === 'black' ){
+          str += "B ";
+        }else{
+          str += "W ";
+        }
+      }
+    }
+    console.log(i + str);
+  }
 };
 
 
