@@ -14,14 +14,18 @@ function sum2(...args) {
 
 //MYBIND
 
-Function.prototype.myBind = function (ctx, ...args) {
+Function.prototype.myBind = function(ctx, ...args) {
   return (...args2) => this.apply(ctx, args.concat(args2));
 }
 
-// Function.prototype.myBind2 = function (ctx, ...args) {
-//   const bindArgs = Array.from(arguments);
-//   return (...args2) => this.apply(ctx, bindArgs.concat(args2));
-// }
+Function.prototype.myBind2 = function(ctx) { 
+  const bindArgs = Array.from(arguments).slice(1);
+  let that = this;
+    return function() {
+        callArgs = Array.from(arguments);
+        that.apply(ctx, bindArgs.concat(callArgs));
+    }
+}
 
 // class Cat {
 //   constructor(name) {
@@ -69,3 +73,23 @@ Function.prototype.myBind = function (ctx, ...args) {
 // // true
 
 //MYBIND
+
+function curriedSum(numArgs){
+    const numbers = [];
+
+    return function _curriedSum(n) {
+        numbers.push(n);
+        if(numbers.length === numArgs){
+            let total = 0;
+            for(let i = 0; i <numbers.length; i++){
+                total += numbers[i];
+            }
+            return total;
+        }else{
+            return _curriedSum;
+        }
+    };
+}
+
+const sums = curriedSum(4);
+console.log(sums(5)(30)(20)(1)); // => 56
