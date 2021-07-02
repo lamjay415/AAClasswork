@@ -1,16 +1,26 @@
-function sum(...args) {
-    return args.reduce( (sum, current) => {
-        return sum + current;
-    });
+// function sum(...args) {
+//     return args.reduce( (sum, current) => {
+//         return sum + current;
+//     });
+// }
+function sum() {
+  console.log(arguments)
+  let sum = 0;
+  // let args = Array.from(arguments);
+  for (let i = 0; i < arguments.length; i++) {
+    sum += arguments[i];
+  }
+  return sum;
 }
 
-function sum2(...args) {
-    return Array.from(arguments).reduce( (sum, current) => {
-        return sum + current;
-    });
-}
 
-// console.log(sum2(1, 2, 3, 4) === 10);
+// function sum2(...args) {
+//     return Array.from(arguments).reduce( (sum, current) => {
+//         return sum + current;
+//     });
+// }
+
+// console.log(sum(1, 2, 3, 4, 5));
 
 //MYBIND
 
@@ -80,16 +90,35 @@ function curriedSum(numArgs){
     return function _curriedSum(n) {
         numbers.push(n);
         if(numbers.length === numArgs){
-            let total = 0;
-            for(let i = 0; i <numbers.length; i++){
-                total += numbers[i];
-            }
-            return total;
+            // let total = 0;
+            // for(let i = 0; i <numbers.length; i++){
+            //     total += numbers[i];
+            // }
+            // return total;
+            return sum.apply(null, numbers);
         }else{
             return _curriedSum;
         }
     };
 }
 
-const sums = curriedSum(4);
-console.log(sums(5)(30)(20)(1)); // => 56
+// const sums = curriedSum(4);
+// console.log(sums(5)(30)(20)(1)); // => 56
+
+Function.prototype.curry = function(numArgs) {
+  const args = [];
+  let that = this;
+
+  return function _curry(arg) {
+    args.push(arg);
+
+    if (args.length === numArgs) {
+      return that.apply(null, args);
+    } else {
+      return _curry;
+    }
+  }
+}
+
+const newFunc = sum.curry(4);
+console.log(newFunc(5)(30)(20)(1));
