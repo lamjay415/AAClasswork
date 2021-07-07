@@ -13,6 +13,7 @@ const Asteroid = function(options){
     this.radius = RADIUS;
     this.color = COLOR;
 }
+
 Util.inherits(Asteroid, MovingObject);
 //WHAT IS LENGTH? AND WHY?
 const vec = Util.randomVec(10);
