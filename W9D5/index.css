@@ -1,0 +1,16 @@
+.date, .time {
+    font-family: 'Yomogi', cursive;
+    display: flex;
+    justify-content: space-between;
+    background: coral;
+    width: 500px;
+    margin: auto;
+}
+h1 {
+    font-family: 'Yomogi', cursive;
+    margin: auto;
+}
+.clock {
+    align-items: center;
+}
+

@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Clock from './clock';
+import Taps from './tabs';
 
 function Root(){
     return (
         <div>
             <Clock/>
+            <Taps panes={panes}/>
         </div>
     );
 }
