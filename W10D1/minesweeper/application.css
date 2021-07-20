@@ -1,0 +1,53 @@
+.row {
+  display: flex;
+}
+
+.tile-unrevealed {
+  border: 1px solid black;
+  width: 20px;
+  height: 20px;
+  background-color: lightslategray;
+  border-style: inset;
+}
+
+.tile-revealed {
+  border: 1px solid black;
+  width: 20px;
+  height: 20px;
+  background-color: whitesmoke;
+  border-style: outset;
+}
+
+.tile-bombed {
+  border: 1px solid black;
+  width: 20px;
+  height: 20px;
+  background-color: lightslategray;
+  border-style: inset;
+}
+
+.tile-flagged {
+  border: 1px solid black;
+  width: 20px;
+  height: 20px;
+  background-color: lightslategray;
+  border-style: inset;
+}
+
+.modal-content {
+    padding: 10px;
+  display: flex;
+  position: absolute;
+  top: 30px;
+  left: 40px;
+  border: 2px solid black;
+  background: whitesmoke;
+  width: 150px;
+  height: 30px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-content button{
+    height: 30px;
+}
